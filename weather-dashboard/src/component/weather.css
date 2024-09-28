@@ -1,0 +1,82 @@
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container-fluid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header { 
+  background-color: #eeeee4;
+  padding: 20px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.weather-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  height: calc(100vh - 96px);
+  background-color: #abdbe3;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.main-card {
+  background-color: #abdbe3;
+  padding: 20px;  
+  flex: 1;
+  overflow-y: auto;
+}
+
+.highlight-card {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  flex: 0 0 50px;
+  margin-right: 10px;
+}
+
+.text-container {
+  flex: 1;
+}
+
+.badge-custom {
+  padding: 7px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.card-title {
+  margin: 0;
+  color: rgb(194, 87, 87) !important;
+}
+
+.card-value {
+  margin: 0;
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.card-status {
+  margin: 0;
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .weather-card, .main-card {
+      height: auto;
+      min-height: calc(100vh - 100px);
+  }
+
+  .header {
+      padding: 10px;
+  }
+}

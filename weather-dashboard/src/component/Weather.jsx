@@ -1,42 +1,42 @@
 import React from "react";
-// import sunImage from './assets/pngtree-sun-png-clipart-colored-png-image_5656301.png';
+import visibilityImg from "../assets/visibility-off.png";
+import humidityImg from "../assets/humidity.png";
+import pressureImg from "../assets/pressure-gauge.png";
+import airImg from "../assets/air-purifier.png";
+import windImg from "../assets/wind.png";
+import sunImg from "../assets/sun.png";
+import "./weather.css";
+
 const Weather = () => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   const cardData = [
-    { title: "Humidity", value: "15%", status: "Normal" },
-    { title: "Pressure", value: "1013 hPa", status: "Stable" },
-    { title: "Wind Speed", value: "10 km/h", status: "Breezy" },
-    { title: "Visibility", value: "10 km", status: "Clear" },
-    { title: "UV Index", value: "5", status: "Moderate" },
-    { title: "Air Quality", value: "Good", status: "Healthy" },
+    { title: "Humidity", value: "15%", status: "Normal", image: humidityImg },
+    {
+      title: "Pressure",
+      value: "1013 hPa",
+      status: "Stable",
+      image: pressureImg,
+    },
+    { title: "Wind Speed", value: "10 km/h", status: "Breezy", image: windImg },
+    {
+      title: "Visibility",
+      value: "5 km",
+      status: "Moderate",
+      image: visibilityImg,
+    },
+    { title: "Air Quality", value: "Good", status: "Healthy", image: airImg },
   ];
 
   return (
     <div className="container-fluid">
-      <div className="row" style={{ backgroundColor: "#eeeee4" }}>
-        <div className="col-12 col-md-4"></div>
-        <div className="col-12 col-md-4 text-center">
+      <div className="row header">
+        <div className="col-12 text-center">
           <h1>Weather Application</h1>
         </div>
-        <div className="col-12 col-md-4"></div>
       </div>
       <div className="row">
-        <div
-          className="col-12 col-md-3"
-          style={{
-            height: "92.7vh",
-            backgroundColor: "#f0f3fa",
-            padding: "10px",
-          }}
-        >
-          <div
-            className="card"
-            style={{
-              padding: "20px",
-              boxShadow:
-                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            }}
-          >
+        <div className="col-12 col-md-4 weather-card">
+          <div className="card" style={{ padding: "20px" }}>
             <div
               className="d-flex justify-content-center"
               style={{ gap: "10px" }}
@@ -54,129 +54,103 @@ const Weather = () => {
             </div>
             <div className="imagDiv">
               <img
-                src=""
-                alt="no-image"
-                style={{ hieght: "300px", width: "200px", border: "1px solid" }}
+                src={sunImg}
+                alt="Weather Logo"
+                style={{ width: "auto", height: "300px" }}
+                className="img-responsive pt-5"
               />
             </div>
             <div style={{ paddingTop: "10px" }}>
-              <h1>12 °C</h1>
+              <h1 style={{ fontSize: "60px" }}>
+                12<sup style={{ fontSize: "30px" }}>°C</sup>
+              </h1>
             </div>
             <div
               style={{ borderBottom: "1px solid #f0f3fa", paddingTop: "10px" }}
             >
-              <h3>Monday, 16:00</h3>
+              <h5>Monday, 16:00</h5>
             </div>
-            <div style={{paddingTop:"10px"}}>
+            <div style={{ paddingTop: "10px" }}>
               <h5>Mostly Cloudy</h5>
             </div>
-            <div style={{paddingTop:"10px"}}>
+            <div style={{ paddingTop: "10px" }}>
               <h5>Rain - 30%</h5>
             </div>
-            <div className="" style={{paddingTop:"10px"}}>
+            <div style={{ paddingTop: "10px" }}>
               <h5>Pune, India</h5>
             </div>
           </div>
         </div>
-        <div
-          className="col-12 col-md-9"
-          style={{
-            backgroundColor: "#abdbe3",
-            paddingLeft: "55px",
-            paddingRight: "55px",
-            paddingTop: "15px",
-          }}
-        >
-          <div className="row">
-            <div className="col-12 col-md-4">
-              <div className="d-flex justify-content-start">
-                <h4 style={{ borderBottom: "1px solid" }}>
-                  Upcoming Week's Forecast
-                </h4>
-              </div>
+        <div className="col-12 col-md-8 main-card">
+          <div className="row mb-3 align-items-start">
+            <div className="col-12 col-md-6 d-flex align-items-start">
+              <h4 className="m-0" style={{ borderBottom: "1px solid" }}>
+                Upcoming Week's Forecast
+              </h4>
             </div>
-            <div className="col-12 col-md-4"></div>
-            <div className="col-12 col-md-4">
-              <div
-                className="d-flex justify-content-end"
-                style={{ gap: "20px" }}
-              >
-                <span
-                  style={{
-                    backgroundColor: "#000",
-                    color: "#fff",
-                    borderRadius: "50%",
-                    padding: "7px",
-                  }}
-                >
-                  <b>°C</b>
-                </span>
-                <span
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#000",
-                    borderRadius: "50%",
-                    padding: "7px",
-                  }}
-                >
-                  <b>°F</b>
-                </span>
-              </div>
+            <div className="col-12 col-md-6 d-flex justify-content-end">
+              <span className="badge bg-dark text-white badge-custom me-2">
+                <b>°C</b>
+              </span>
+              <span className="badge bg-light text-dark badge-custom">
+                <b>°F</b>
+              </span>
             </div>
           </div>
-
-          <div className="row" style={{ paddingTop: "35px" }}>
+          <div className="row mb-4 pt-2">
             {days.map((day) => (
               <div
                 key={day}
-                className="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-4"
+                className="col-6 col-md-4 col-lg-2 d-flex justify-content-center mb-3"
               >
                 <div
-                  className="card"
+                  className="card text-center"
                   style={{
                     boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    width: "180px",
+                      "0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)",
+                    width: "100%",
                     padding: "10px",
                   }}
                 >
-                  <h5>{day}</h5>
-
-                  <h5>15° 3°</h5>
+                  <h5 className="pt-2">{day}</h5>
+                  <img
+                    src={sunImg}
+                    className="img-responsive pt-1"
+                    style={{ margin: "0 auto", height: "50px", width: "50%" }}
+                  />
+                  <h5 className="pt-2">15° 3°</h5>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="row">
-            <div className="col-12 col-md-4">
-              <div className="d-flex justify-content-start">
-                <h4 style={{ borderBottom: "1px solid" }}>
-                  Today's HightLights
-                </h4>
-              </div>
+          <div className="row mb-3">
+            <div className="col-12 col-md-6 d-flex align-items-start">
+              <h4 style={{ borderBottom: "1px solid" }}>Today's Highlights</h4>
             </div>
-            <div className="col-12 col-md-4"></div>
           </div>
-          <div className="row" style={{ paddingTop: "35px" }}>
+
+          <div className="row pt-2">
             {cardData.map((data, index) => (
               <div
                 key={index}
-                className="col-md-4 d-flex justify-content-center mb-4"
+                className="col-12 col-md-4 d-flex justify-content-center mb-4"
               >
-                <div
-                  className="card"
-                  style={{
-                    width: "280px",
-                    padding: "20px",
-                    height: "180px",
-                    boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                  }}
-                >
-                  <h5>{data.title}</h5>
-                  <h5>{data.value}</h5>
-                  <h5>{data.status}</h5>
+                <div className="card highlight-card">
+                  <div className="d-flex align-items-center">
+                    <div className="image-container">
+                      <img
+                        src={data.image}
+                        alt={data.title}
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                    </div>
+                    <div className="text-container">
+                      <h5 className="card-title">{data.title}</h5>
+                      <h5 className="card-value">{data.value}</h5>
+                      <h5 className="card-status">{data.status}</h5>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
