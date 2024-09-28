@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import visibilityImg from "../assets/visibility-off.png";
 import humidityImg from "../assets/humidity.png";
 import pressureImg from "../assets/pressure-gauge.png";
@@ -6,9 +6,7 @@ import airImg from "../assets/air-purifier.png";
 import windImg from "../assets/wind.png";
 import sunImg from "../assets/sun.png";
 import "./weather.css";
-
-const Weather = () => {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   const cardData = [
     { title: "Humidity", value: "15%", status: "Normal", image: humidityImg },
     {
@@ -26,7 +24,18 @@ const Weather = () => {
     },
     { title: "Air Quality", value: "Good", status: "Healthy", image: airImg },
   ];
+const Weather = () => {
 
+  const [cityName, setCityName] = useState("")
+  
+
+  const handleChangeForCity = (e) =>{
+    setCityName(e.target.value)
+    console.log("City Name", e.target.value)
+  }
+  const handleSubmit = () =>{
+    console.log("Search Button Clicked")
+  }
   return (
     <div className="container-fluid">
       <div className="row header">
@@ -47,8 +56,10 @@ const Weather = () => {
                 placeholder="Search for places..."
                 aria-label="Search"
                 style={{ borderRadius: "12px", width: "100%" }}
+                value={cityName}
+                onChange={handleChangeForCity}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" type="submit" onClick={handleSubmit}>
                 Search
               </button>
             </div>
