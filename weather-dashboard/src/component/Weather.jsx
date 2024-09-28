@@ -7,35 +7,39 @@ import windImg from "../assets/wind.png";
 import sunImg from "../assets/sun.png";
 import "./weather.css";
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-  const cardData = [
-    { title: "Humidity", value: "15%", status: "Normal", image: humidityImg },
-    {
-      title: "Pressure",
-      value: "1013 hPa",
-      status: "Stable",
-      image: pressureImg,
-    },
-    { title: "Wind Speed", value: "10 km/h", status: "Breezy", image: windImg },
-    {
-      title: "Visibility",
-      value: "5 km",
-      status: "Moderate",
-      image: visibilityImg,
-    },
-    { title: "Air Quality", value: "Good", status: "Healthy", image: airImg },
-  ];
+const cardData = [
+  { title: "Humidity", value: "15%", status: "Normal", image: humidityImg },
+  {
+    title: "Pressure",
+    value: "1013 hPa",
+    status: "Stable",
+    image: pressureImg,
+  },
+  { title: "Wind Speed", value: "10 km/h", status: "Breezy", image: windImg },
+  {
+    title: "Visibility",
+    value: "5 km",
+    status: "Moderate",
+    image: visibilityImg,
+  },
+  { title: "Air Quality", value: "Good", status: "Healthy", image: airImg },
+];
 const Weather = () => {
+  const [cityName, setCityName] = useState("");
+  const [isCelsius, setIsCelsius] = useState(true);
 
-  const [cityName, setCityName] = useState("")
-  
+  const handleChangeForCity = (e) => {
+    setCityName(e.target.value);
+    console.log("City Name", e.target.value);
+  };
+  const toggleTemperatureUnit = () => {
+    setIsCelsius((prev) => !prev);
+  };
 
-  const handleChangeForCity = (e) =>{
-    setCityName(e.target.value)
-    console.log("City Name", e.target.value)
-  }
-  const handleSubmit = () =>{
-    console.log("Search Button Clicked")
-  }
+
+  const handleSubmit = () => {
+    console.log("Search Button Clicked");
+  };
   return (
     <div className="container-fluid">
       <div className="row header">
@@ -59,7 +63,11 @@ const Weather = () => {
                 value={cityName}
                 onChange={handleChangeForCity}
               />
-              <button className="btn btn-outline-primary" type="submit" onClick={handleSubmit}>
+              <button
+                className="btn btn-outline-primary"
+                type="submit"
+                onClick={handleSubmit}
+              >
                 Search
               </button>
             </div>
@@ -100,10 +108,18 @@ const Weather = () => {
               </h4>
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-end">
-              <span className="badge bg-dark text-white badge-custom me-2 p-2">
+               <span 
+                className={`badge badge-custom me-2 p-2 ${isCelsius ? 'bg-dark text-white' : 'bg-light text-dark'}`} 
+                onClick={toggleTemperatureUnit}
+                style={{ cursor: "pointer" }}
+              >
                 <b>°C</b>
               </span>
-              <span className="badge bg-light text-dark badge-custom p-2">
+              <span 
+                className={`badge badge-custom p-2 ${!isCelsius ? 'bg-dark text-white' : 'bg-light text-dark'}`} 
+                onClick={toggleTemperatureUnit}
+                style={{ cursor: "pointer" }}
+              >
                 <b>°F</b>
               </span>
             </div>
