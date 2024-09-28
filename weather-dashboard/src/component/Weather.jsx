@@ -59,7 +59,7 @@ const Weather = () => {
                 value={cityName}
                 onChange={handleChangeForCity}
               />
-              <button className="btn btn-outline-success" type="submit" onClick={handleSubmit}>
+              <button className="btn btn-outline-primary" type="submit" onClick={handleSubmit}>
                 Search
               </button>
             </div>
