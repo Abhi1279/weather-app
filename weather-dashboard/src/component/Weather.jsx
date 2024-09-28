@@ -1,8 +1,15 @@
 import React from "react";
-
+// import sunImage from './assets/pngtree-sun-png-clipart-colored-png-image_5656301.png';
 const Weather = () => {
-    
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu","Fri"];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  const cardData = [
+    { title: "Humidity", value: "15%", status: "Normal" },
+    { title: "Pressure", value: "1013 hPa", status: "Stable" },
+    { title: "Wind Speed", value: "10 km/h", status: "Breezy" },
+    { title: "Visibility", value: "10 km", status: "Clear" },
+    { title: "UV Index", value: "5", status: "Moderate" },
+    { title: "Air Quality", value: "Good", status: "Healthy" },
+  ];
 
   return (
     <div className="container-fluid">
@@ -22,17 +29,22 @@ const Weather = () => {
             padding: "10px",
           }}
         >
-          <div className="d-flex justify-content-center" style={{ gap: "10px" }}>
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Search for places..."
-              aria-label="Search"
-              style={{ borderRadius: "12px", width: "100%" }}
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
+          <div className="">
+            <div
+              className="d-flex justify-content-center"
+              style={{ gap: "10px" }}
+            >
+              <input
+                className="form-control"
+                type="search"
+                placeholder="Search for places..."
+                aria-label="Search"
+                style={{ borderRadius: "12px", width: "100%" }}
+              />
+              <button className="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -54,7 +66,10 @@ const Weather = () => {
             </div>
             <div className="col-12 col-md-4"></div>
             <div className="col-12 col-md-4">
-              <div className="d-flex justify-content-end" style={{ gap: "20px" }}>
+              <div
+                className="d-flex justify-content-end"
+                style={{ gap: "20px" }}
+              >
                 <span
                   style={{
                     backgroundColor: "#000",
@@ -79,16 +94,61 @@ const Weather = () => {
             </div>
           </div>
 
-          <div className="row" style={{paddingTop:"35px"}}>
-          {days.map((day) => (
-            <div key={day} className="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-4">
-              <div className="card" style={{ width: "180px", padding: "10px" }}>
-                <h5>{day}</h5>
-                <img src="" alt="no_image" style={{ height: "50px", width: "100%" }} />
-                <h5>15° 3°</h5>
+          <div className="row" style={{ paddingTop: "35px" }}>
+            {days.map((day) => (
+              <div
+                key={day}
+                className="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-4"
+              >
+                <div
+                  className="card"
+                  style={{
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                    width: "180px",
+                    padding: "10px",
+                  }}
+                >
+                  <h5>{day}</h5>
+
+                  <h5>15° 3°</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="row">
+            <div className="col-12 col-md-4">
+              <div className="d-flex justify-content-start">
+                <h4 style={{ borderBottom: "1px solid" }}>
+                  Today's HightLights
+                </h4>
               </div>
             </div>
-          ))}
+            <div className="col-12 col-md-4"></div>
+          </div>
+          <div className="row" style={{ paddingTop: "35px" }}>
+            {cardData.map((data, index) => (
+              <div
+                key={index}
+                className="col-md-4 d-flex justify-content-center mb-4"
+              >
+                <div
+                  className="card"
+                  style={{
+                    width: "280px",
+                    padding: "20px",
+                    height: "180px",
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  }}
+                >
+                  <h5>{data.title}</h5>
+                  <h5>{data.value}</h5>
+                  <h5>{data.status}</h5>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
