@@ -6,7 +6,11 @@ import airImg from "../assets/air-purifier.png";
 import windImg from "../assets/wind.png";
 import sunImg from "../assets/sun.png";
 import "./weather.css";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+
 const cardData = [
   { title: "Humidity", value: "15%", status: "Normal", image: humidityImg },
   {
@@ -28,20 +32,23 @@ const Weather = () => {
   const [cityName, setCityName] = useState("");
   const [isCelsius, setIsCelsius] = useState(true);
 
+
   const handleChangeForCity = (e) => {
     setCityName(e.target.value);
     console.log("City Name", e.target.value);
   };
   const toggleTemperatureUnit = () => {
     setIsCelsius((prev) => !prev);
+    toast("Temparture Unit Changed Sucessfully")
   };
-
 
   const handleSubmit = () => {
     console.log("Search Button Clicked");
   };
   return (
+    
     <div className="container-fluid">
+    <ToastContainer />
       <div className="row header">
         <div className="col-12 text-center">
           <h1>Weather Application</h1>
@@ -108,15 +115,19 @@ const Weather = () => {
               </h4>
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-end">
-               <span 
-                className={`badge badge-custom me-2 p-2 ${isCelsius ? 'bg-dark text-white' : 'bg-light text-dark'}`} 
+              <span
+                className={`badge badge-custom me-2 p-2 ${
+                  isCelsius ? "bg-dark text-white" : "bg-light text-dark"
+                }`}
                 onClick={toggleTemperatureUnit}
                 style={{ cursor: "pointer" }}
               >
                 <b>°C</b>
               </span>
-              <span 
-                className={`badge badge-custom p-2 ${!isCelsius ? 'bg-dark text-white' : 'bg-light text-dark'}`} 
+              <span
+                className={`badge badge-custom p-2 ${
+                  !isCelsius ? "bg-dark text-white" : "bg-light text-dark"
+                }`}
                 onClick={toggleTemperatureUnit}
                 style={{ cursor: "pointer" }}
               >
