@@ -100,10 +100,10 @@ const Weather = () => {
               </h4>
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-end">
-              <span className="badge bg-dark text-white badge-custom me-2">
+              <span className="badge bg-dark text-white badge-custom me-2 p-2">
                 <b>°C</b>
               </span>
-              <span className="badge bg-light text-dark badge-custom">
+              <span className="badge bg-light text-dark badge-custom p-2">
                 <b>°F</b>
               </span>
             </div>
