@@ -25,11 +25,18 @@ const Weather = () => {
           className="col-12 col-md-3"
           style={{
             height: "92.7vh",
-            backgroundColor: "#fff",
+            backgroundColor: "#f0f3fa",
             padding: "10px",
           }}
         >
-          <div className="">
+          <div
+            className="card"
+            style={{
+              padding: "20px",
+              boxShadow:
+                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+            }}
+          >
             <div
               className="d-flex justify-content-center"
               style={{ gap: "10px" }}
@@ -44,6 +51,30 @@ const Weather = () => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
+            </div>
+            <div className="imagDiv">
+              <img
+                src=""
+                alt="no-image"
+                style={{ hieght: "300px", width: "200px", border: "1px solid" }}
+              />
+            </div>
+            <div style={{ paddingTop: "10px" }}>
+              <h1>12 °C</h1>
+            </div>
+            <div
+              style={{ borderBottom: "1px solid #f0f3fa", paddingTop: "10px" }}
+            >
+              <h3>Monday, 16:00</h3>
+            </div>
+            <div style={{paddingTop:"10px"}}>
+              <h5>Mostly Cloudy</h5>
+            </div>
+            <div style={{paddingTop:"10px"}}>
+              <h5>Rain - 30%</h5>
+            </div>
+            <div className="" style={{paddingTop:"10px"}}>
+              <h5>Pune, India</h5>
             </div>
           </div>
         </div>
