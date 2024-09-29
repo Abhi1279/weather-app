@@ -55,7 +55,7 @@ const WeatherCard = () => {
             Search
           </button>
         </div>
-        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+        <ToastContainer position="top-right" autoClose={3000} />
         {!error && weatherData && (
           <div className="weather-info text-center pt-4">
             <h5><img src={mapImg} alt="no_img" className="img-responsive mapImg"/> <span>{cityName}</span> </h5>
