@@ -35,7 +35,6 @@ const Weather = () => {
 
   const handleChangeForCity = (e) => {
     setCityName(e.target.value);
-    console.log("City Name", e.target.value);
   };
   const toggleTemperatureUnit = () => {
     setIsCelsius((prev) => !prev);
