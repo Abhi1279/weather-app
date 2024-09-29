@@ -26,6 +26,7 @@ const WeatherCard = () => {
 
   const handleChangeForCity = (e) => {
     setInputCity(e.target.value);
+
   };
 
   const handleSubmit = () => {
