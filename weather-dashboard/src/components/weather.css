@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 
-.header { 
+.header {
   background-color: #eeeee4;
   padding: 20px 0;
   text-align: center;
@@ -19,16 +19,33 @@ body {
 .weather-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
   height: calc(100vh - 96px);
-  background-color: #abdbe3;
+  background-color: #f6f5f8;
   padding: 20px;
   flex-shrink: 0;
 }
 
 .main-card {
-  background-color: #abdbe3;
-  padding: 20px;  
+  background-color: #f6f5f8;
+  padding: 20px;
   flex: 1;
   overflow-y: auto;
+}
+
+.foreCastTitle {
+  border-bottom: 1px solid;
+  width: 320px;
+}
+
+.forCastCard {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 530px !important;
+  background-color: #79c2f3 !important;
+}
+
+.forCastDynamicImg {
+  height: 80px;
+  width: 100%;
 }
 
 .highlight-card {
@@ -37,11 +54,45 @@ body {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #79c2f3 !important;
+  border: 1px solid gray;
+}
+
+.highlightsTitle {
+  border-bottom: 1px solid;
+}
+
+.highLightImg {
+  width: 50px;
+  height: 50px;
+}
+
+.weatherCard {
+  padding: 20px;
+  background-color: #79c2f3 !important
+}
+
+.searchBtn {
+  background-color: #fff !important
+}
+
+.mapImg {
+  height: 35px
+}
+
+.weatherImg {
+  width: auto;
+  height: 268px;
 }
 
 .image-container {
   flex: 0 0 50px;
   margin-right: 10px;
+}
+
+.searchInput {
+  border-radius: 12px;
+  width: 100%;
 }
 
 .text-container {
@@ -57,6 +108,7 @@ body {
 .card-title {
   margin: 0;
   color: rgb(194, 87, 87) !important;
+  /* color: #f6f5f8 !important; */
 }
 
 .card-value {
@@ -71,12 +123,14 @@ body {
 }
 
 @media (max-width: 768px) {
-  .weather-card, .main-card {
-      height: auto;
-      min-height: calc(100vh - 100px);
+
+  .weather-card,
+  .main-card {
+    height: auto;
+    min-height: calc(100vh - 100px);
   }
 
   .header {
-      padding: 10px;
+    padding: 10px;
   }
 }

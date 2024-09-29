@@ -1,3 +1,14 @@
+<!-- 
+1.Input Field Validation
+2.Install Redux 
+3.Sign Up API
+4.Fetach API
+5.Code Refactor
+6.Error Handling using toaster
+7.Test Cases
+8.-->
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
