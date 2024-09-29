@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCityName, fetchWeather } from "../store/weatherSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import mapImg from '../assets/mark-on-map.png'
+import mapImg from '../assets/mark-on-map.png';
 
 const WeatherCard = () => {
   const dispatch = useDispatch();
@@ -29,6 +29,13 @@ const WeatherCard = () => {
   };
 
   const handleSubmit = () => {
+    const isValidInput = /^[a-zA-Z\s]*$/.test(inputCity);
+
+    if (!isValidInput) {
+      toast.error("Please enter a valid city name (only letters and spaces).");
+      return;
+    }
+
     if (inputCity) {
       dispatch(setCityName(inputCity));
       dispatch(fetchWeather(inputCity));
@@ -58,7 +65,10 @@ const WeatherCard = () => {
         <ToastContainer position="top-right" autoClose={3000} />
         {!error && weatherData && (
           <div className="weather-info text-center pt-4">
-            <h5><img src={mapImg} alt="no_img" className="img-responsive mapImg"/> <span>{cityName}</span> </h5>
+            <h5>
+              <img src={mapImg} alt="no_img" className="img-responsive mapImg" />
+              <span>{cityName}</span>
+            </h5>
             <div className="imagDiv">
               <img
                 src={`http://openweathermap.org/img/wn/${weatherData[0].weather[0].icon}@2x.png`}
@@ -66,9 +76,9 @@ const WeatherCard = () => {
                 className="weatherImg img-responsive pt-3"
               />
             </div>
-              <b> {weatherData[0].weather[0].description}</b>
+            <b>{weatherData[0].weather[0].description}</b>
             <h3>
-             <span style={{color:"#fff"}}><b>{weatherData[0].main.temp} °C</b></span>
+              <span style={{ color: "#fff" }}><b>{weatherData[0].main.temp} °C</b></span>
             </h3>
             <p><b>Humidity: {weatherData[0].main.humidity}%</b></p>
             <p><b>Pressure: {weatherData[0].main.pressure} hPa</b></p>
